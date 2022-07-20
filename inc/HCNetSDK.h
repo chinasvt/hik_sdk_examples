@@ -10820,7 +10820,7 @@ typedef struct tagNET_DVR_IPCHANINFO_V40 {
 typedef struct tagNET_DVR_STREAM_INFO {
     DWORD dwSize;
     BYTE byID[STREAM_ID_LEN];      //ID数据
-    DWORD dwChannel;                //关联设备通道，等于0xffffffff时，表示不关联
+    DWORD dwChannel;               //关联设备通道，等于0xffffffff时，表示不关联
     BYTE byRes[32];                //保留
 } NET_DVR_STREAM_INFO, *LPNET_DVR_STREAM_INFO;
 
@@ -48473,19 +48473,15 @@ NET_DVR_API BOOL __stdcall NET_DVR_FindClose_V30(LONG lFindHandle);
 
 NET_DVR_API BOOL __stdcall NET_DVR_LockFileByName(LONG lUserID, char *sLockFileName);
 NET_DVR_API BOOL __stdcall NET_DVR_UnlockFileByName(LONG lUserID, char *sUnlockFileName);
-NET_DVR_API BOOL __stdcall
-NET_DVR_LockFileByNameV40(LONG lUserID, BOOL bLock, const NET_DVR_LOCK_FILE_BY_NAME_PARA *lpLockFilePara);
+NET_DVR_API BOOL __stdcall NET_DVR_LockFileByNameV40(LONG lUserID, BOOL bLock, const NET_DVR_LOCK_FILE_BY_NAME_PARA *lpLockFilePara);
 NET_DVR_API LONG __stdcall NET_DVR_PlayBackByName(LONG lUserID, char *sPlayBackFileName, HWND hWnd);
-NET_DVR_API LONG __stdcall
-NET_DVR_PlayBackByTime(LONG lUserID, LONG lChannel, LPNET_DVR_TIME lpStartTime, LPNET_DVR_TIME lpStopTime, HWND hWnd);
+NET_DVR_API LONG __stdcall NET_DVR_PlayBackByTime(LONG lUserID, LONG lChannel, LPNET_DVR_TIME lpStartTime, LPNET_DVR_TIME lpStopTime, HWND hWnd);
 NET_DVR_API LONG __stdcall NET_DVR_PlayBackReverseByName(LONG lUserID, char *sPlayBackFileName, HWND hWnd);
 NET_DVR_API LONG __stdcall NET_DVR_PlayBackByName_V50(LONG lUserID, LPNET_DVR_PLAY_BY_NAME_PARA pParam);
 NET_DVR_API LONG __stdcall NET_DVR_PlayBackReverseByName_V50(LONG lUserID, LPNET_DVR_PLAY_BY_NAME_PARA pParam);
-NET_DVR_API LONG __stdcall
-NET_DVR_PlayBackByTime_PCNVR(LONG lUserID, NET_DVR_PLAYBCK_BYTIME_COND_PCNVR const *pPlaybackParams);
+NET_DVR_API LONG __stdcall NET_DVR_PlayBackByTime_PCNVR(LONG lUserID, NET_DVR_PLAYBCK_BYTIME_COND_PCNVR const *pPlaybackParams);
 
-NET_DVR_API BOOL __stdcall
-NET_DVR_PlayBackControl(LONG lPlayHandle, DWORD dwControlCode, DWORD dwInValue, DWORD *LPOutValue);
+NET_DVR_API BOOL __stdcall NET_DVR_PlayBackControl(LONG lPlayHandle, DWORD dwControlCode, DWORD dwInValue, DWORD *LPOutValue);
 NET_DVR_API BOOL __stdcall NET_DVR_StopPlayBack(LONG lPlayHandle);
 NET_DVR_API BOOL __stdcall NET_DVR_SetPlayDataCallBack(LONG lPlayHandle,
                                                        void(CALLBACK *fPlayDataCallBack)(LONG lPlayHandle,
