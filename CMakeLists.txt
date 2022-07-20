@@ -10,7 +10,7 @@ add_subdirectory(samples)
 include_directories(inc)
 link_directories(lib)
 
-list(APPEND LINKER_LIBS HCCore hcnetsdk PlayCtrl)
+list(APPEND LINKER_LIBS HCCore hcnetsdk)
 
 foreach(SAMPLE_NAME ${SAMPLE_SOURCES})
     #unpack the dir "/"

@@ -42,8 +42,7 @@ int main() {
     NET_DVR_SetReconnect(10000, true);
 
     //设置异常消息回调函数
-    NET_DVR_SetExceptionCallBack_V30(0, nullptr,g_ExceptionCallBack, nullptr);
-
+    NET_DVR_SetExceptionCallBack_V30(0, nullptr, g_ExceptionCallBack, nullptr);
 
     // 注册设备
     LONG lUserID;
@@ -76,7 +75,8 @@ int main() {
     struPlayInfo.dwLinkMode = 0;         //0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
     struPlayInfo.bBlocked = 1;         //0- 非阻塞取流，1- 阻塞取流
 
-    lRealPlayHandle = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo, reinterpret_cast<REALDATACALLBACK>(g_RealDataCallBack_V30), nullptr);
+    lRealPlayHandle = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo,
+                                           reinterpret_cast<REALDATACALLBACK>(g_RealDataCallBack_V30), nullptr);
     if (lRealPlayHandle < 0) {
         printf("NET_DVR_RealPlay_V40 error, %d\n", NET_DVR_GetLastError());
         NET_DVR_Logout(lUserID);
