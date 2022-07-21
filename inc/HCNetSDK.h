@@ -12594,21 +12594,21 @@ typedef struct {
 } NET_DVR_MATRIX_DEC_REMOTE_PLAY, *LPNET_DVR_MATRIX_DEC_REMOTE_PLAY;
 
 /* 文件播放命令 */
-#define NET_DVR_PLAYSTART        1//开始播放
-#define NET_DVR_PLAYSTOP        2//停止播放
-#define NET_DVR_PLAYPAUSE        3//暂停播放
-#define NET_DVR_PLAYRESTART        4//恢复播放
-#define NET_DVR_PLAYFAST        5//快放
-#define NET_DVR_PLAYSLOW        6//慢放
-#define NET_DVR_PLAYNORMAL        7//正常速度
-#define NET_DVR_PLAYSTARTAUDIO    9//打开声音
-#define NET_DVR_PLAYSTOPAUDIO    10//关闭声音
-#define NET_DVR_PLAYSETPOS        12//改变文件回放的进度
-#define NET_DVR_RESETBUFFER        37  //清空矩阵解码缓冲区（远程回放文件）
+#define NET_DVR_PLAYSTART        1 // 开始播放
+#define NET_DVR_PLAYSTOP         2 // 停止播放
+#define NET_DVR_PLAYPAUSE        3 // 暂停播放
+#define NET_DVR_PLAYRESTART      4 // 恢复播放
+#define NET_DVR_PLAYFAST         5 // 快放
+#define NET_DVR_PLAYSLOW         6 // 慢放
+#define NET_DVR_PLAYNORMAL       7 // 正常速度
+#define NET_DVR_PLAYSTARTAUDIO   9 // 打开声音
+#define NET_DVR_PLAYSTOPAUDIO   10 // 关闭声音
+#define NET_DVR_PLAYSETPOS      12 // 改变文件回放的进度
+#define NET_DVR_RESETBUFFER     37 // 清空矩阵解码缓冲区（远程回放文件）
 
 typedef struct {
     DWORD dwSize;
-    DWORD dwPlayCmd;        /* 播放命令 见文件播放命令*/
+    DWORD dwPlayCmd;         /* 播放命令 见文件播放命令 */
     DWORD dwCmdParam;        /* 播放命令参数 */
 } NET_DVR_MATRIX_DEC_REMOTE_PLAY_CONTROL, *LPNET_DVR_MATRIX_DEC_REMOTE_PLAY_CONTROL;
 
@@ -48433,34 +48433,24 @@ NET_DVR_API BOOL __stdcall NET_DVR_PTZControl_Other(LONG lUserID, LONG lChannel,
 NET_DVR_API BOOL __stdcall NET_DVR_TransPTZ(LONG lRealHandle, char *pPTZCodeBuf, DWORD dwBufSize);
 NET_DVR_API BOOL __stdcall NET_DVR_TransPTZ_Other(LONG lUserID, LONG lChannel, char *pPTZCodeBuf, DWORD dwBufSize);
 NET_DVR_API BOOL __stdcall NET_DVR_PTZPreset(LONG lRealHandle, DWORD dwPTZPresetCmd, DWORD dwPresetIndex);
-NET_DVR_API BOOL __stdcall
-NET_DVR_PTZPreset_Other(LONG lUserID, LONG lChannel, DWORD dwPTZPresetCmd, DWORD dwPresetIndex);
+NET_DVR_API BOOL __stdcall NET_DVR_PTZPreset_Other(LONG lUserID, LONG lChannel, DWORD dwPTZPresetCmd, DWORD dwPresetIndex);
 NET_DVR_API BOOL __stdcall NET_DVR_TransPTZ_EX(LONG lRealHandle, char *pPTZCodeBuf, DWORD dwBufSize);
 NET_DVR_API BOOL __stdcall NET_DVR_PTZControl_EX(LONG lRealHandle, DWORD dwPTZCommand, DWORD dwStop);
 NET_DVR_API BOOL __stdcall NET_DVR_PTZPreset_EX(LONG lRealHandle, DWORD dwPTZPresetCmd, DWORD dwPresetIndex);
-NET_DVR_API BOOL __stdcall
-NET_DVR_PTZCruise(LONG lRealHandle, DWORD dwPTZCruiseCmd, BYTE byCruiseRoute, BYTE byCruisePoint, WORD wInput);
-NET_DVR_API BOOL __stdcall
-NET_DVR_PTZCruise_Other(LONG lUserID, LONG lChannel, DWORD dwPTZCruiseCmd, BYTE byCruiseRoute, BYTE byCruisePoint,
-                        WORD wInput);
-NET_DVR_API BOOL __stdcall
-NET_DVR_PTZCruise_EX(LONG lRealHandle, DWORD dwPTZCruiseCmd, BYTE byCruiseRoute, BYTE byCruisePoint, WORD wInput);
+NET_DVR_API BOOL __stdcall NET_DVR_PTZCruise(LONG lRealHandle, DWORD dwPTZCruiseCmd, BYTE byCruiseRoute, BYTE byCruisePoint, WORD wInput);
+NET_DVR_API BOOL __stdcall NET_DVR_PTZCruise_Other(LONG lUserID, LONG lChannel, DWORD dwPTZCruiseCmd, BYTE byCruiseRoute, BYTE byCruisePoint, WORD wInput);
+NET_DVR_API BOOL __stdcall NET_DVR_PTZCruise_EX(LONG lRealHandle, DWORD dwPTZCruiseCmd, BYTE byCruiseRoute, BYTE byCruisePoint, WORD wInput);
 NET_DVR_API BOOL __stdcall NET_DVR_PTZTrack(LONG lRealHandle, DWORD dwPTZTrackCmd);
 NET_DVR_API BOOL __stdcall NET_DVR_PTZTrack_Other(LONG lUserID, LONG lChannel, DWORD dwPTZTrackCmd);
 NET_DVR_API BOOL __stdcall NET_DVR_PTZTrack_EX(LONG lRealHandle, DWORD dwPTZTrackCmd);
-NET_DVR_API BOOL __stdcall
-NET_DVR_PTZControlWithSpeed(LONG lRealHandle, DWORD dwPTZCommand, DWORD dwStop, DWORD dwSpeed);
-NET_DVR_API BOOL __stdcall
-NET_DVR_PTZControlWithSpeed_Other(LONG lUserID, LONG lChannel, DWORD dwPTZCommand, DWORD dwStop, DWORD dwSpeed);
-NET_DVR_API BOOL __stdcall
-NET_DVR_PTZControlWithSpeed_EX(LONG lRealHandle, DWORD dwPTZCommand, DWORD dwStop, DWORD dwSpeed);
-NET_DVR_API BOOL __stdcall
-NET_DVR_GetPTZCruise(LONG lUserID, LONG lChannel, LONG lCruiseRoute, LPNET_DVR_CRUISE_RET lpCruiseRet);
+NET_DVR_API BOOL __stdcall NET_DVR_PTZControlWithSpeed(LONG lRealHandle, DWORD dwPTZCommand, DWORD dwStop, DWORD dwSpeed);
+NET_DVR_API BOOL __stdcall NET_DVR_PTZControlWithSpeed_Other(LONG lUserID, LONG lChannel, DWORD dwPTZCommand, DWORD dwStop, DWORD dwSpeed);
+NET_DVR_API BOOL __stdcall NET_DVR_PTZControlWithSpeed_EX(LONG lRealHandle, DWORD dwPTZCommand, DWORD dwStop, DWORD dwSpeed);
+NET_DVR_API BOOL __stdcall NET_DVR_GetPTZCruise(LONG lUserID, LONG lChannel, LONG lCruiseRoute, LPNET_DVR_CRUISE_RET lpCruiseRet);
 
 
 //文件查找与回放
-NET_DVR_API LONG __stdcall
-NET_DVR_FindFile(LONG lUserID, LONG lChannel, DWORD dwFileType, LPNET_DVR_TIME lpStartTime, LPNET_DVR_TIME lpStopTime);
+NET_DVR_API LONG __stdcall NET_DVR_FindFile(LONG lUserID, LONG lChannel, DWORD dwFileType, LPNET_DVR_TIME lpStartTime, LPNET_DVR_TIME lpStopTime);
 NET_DVR_API LONG __stdcall NET_DVR_FindNextFile(LONG lFindHandle, LPNET_DVR_FIND_DATA lpFindData);
 NET_DVR_API LONG __stdcall NET_DVR_FindNextFile_Card(LONG lFindHandle, LPNET_DVR_FINDDATA_CARD lpFindData);
 NET_DVR_API BOOL __stdcall NET_DVR_FindClose(LONG lFindHandle);
@@ -48490,27 +48480,24 @@ NET_DVR_API BOOL __stdcall NET_DVR_SetPlayDataCallBack(LONG lPlayHandle,
                                                                                          DWORD dwUser), DWORD dwUser);
 NET_DVR_API BOOL __stdcall NET_DVR_SetPlayBackESCallBack(LONG lPlayHandle,
                                                          void (CALLBACK *fPlayESCallBack)(LONG lPlayHandle,
-                                                                                          NET_DVR_PACKET_INFO_EX *struPackInfo,
-                                                                                          void *pUser), void *pUser);
+                                                                                          NET_DVR_PACKET_INFO_EX *struPackInfo, void *pUser), void *pUser);
+
 NET_DVR_API BOOL __stdcall NET_DVR_SetPlayDataCallBack_V40(LONG lPlayHandle,
                                                            void(CALLBACK *fPlayDataCallBack_V40)(LONG lPlayHandle,
                                                                                                  DWORD dwDataType,
                                                                                                  BYTE *pBuffer,
                                                                                                  DWORD dwBufSize,
-                                                                                                 void *pUser),
-                                                           void *pUser);
+                                                                                                 void *pUser), void *pUser);
 NET_DVR_API BOOL __stdcall NET_DVR_PlayBackSaveData(LONG lPlayHandle, char *sFileName);
 NET_DVR_API BOOL __stdcall NET_DVR_StopPlayBackSave(LONG lPlayHandle);
 NET_DVR_API BOOL __stdcall NET_DVR_GetPlayBackOsdTime(LONG lPlayHandle, LPNET_DVR_TIME lpOsdTime);
 NET_DVR_API BOOL __stdcall NET_DVR_PlayBackCaptureFile(LONG lPlayHandle, char *sFileName);
 NET_DVR_API LONG __stdcall NET_DVR_GetFileByName(LONG lUserID, char *sDVRFileName, char *sSavedFileName);
 NET_DVR_API LONG __stdcall NET_DVR_GetFileByName_V50(LONG lUserID, LPNET_DVR_DOWNLOAD_BY_NAME_COND pParam);
-NET_DVR_API LONG __stdcall
-NET_DVR_GetFileByTime(LONG lUserID, LONG lChannel, LPNET_DVR_TIME lpStartTime, LPNET_DVR_TIME lpStopTime,
-                      char *sSavedFileName);
+NET_DVR_API LONG __stdcall NET_DVR_GetFileByTime(LONG lUserID, LONG lChannel, LPNET_DVR_TIME lpStartTime, LPNET_DVR_TIME lpStopTime, char *sSavedFileName);
 NET_DVR_API BOOL __stdcall NET_DVR_StopGetFile(LONG lFileHandle);
 NET_DVR_API int __stdcall NET_DVR_GetDownloadPos(LONG lFileHandle);
-NET_DVR_API int    __stdcall NET_DVR_GetPlayBackPos(LONG lPlayHandle);
+NET_DVR_API int __stdcall NET_DVR_GetPlayBackPos(LONG lPlayHandle);
 
 //升级
 NET_DVR_API LONG __stdcall NET_DVR_AdapterUpgrade(LONG lUserID, char *sFileName);
@@ -48935,24 +48922,17 @@ NET_DVR_API BOOL __stdcall NET_DVR_FindPDCClose(LONG lFindHandle);
 #define NET_DVR_VERIFY_ITS_CALIBRATION            3    // 智能交通标定校验
 #define NET_DVR_VERIFY_BV_CALIBRATION            5    //双目标定校验
 
-NET_DVR_API BOOL __stdcall
-NET_DVR_VerifyCalibration(LONG lUserID, DWORD dwCommand, LONG lChannel, LPVOID lpInBuffer, DWORD dwInBufferSize,
-                          LPVOID lpOuterBuffer, DWORD dwOuterBufferSize);
+NET_DVR_API BOOL __stdcall NET_DVR_VerifyCalibration(LONG lUserID, DWORD dwCommand, LONG lChannel, LPVOID lpInBuffer, DWORD dwInBufferSize, LPVOID lpOuterBuffer, DWORD dwOuterBufferSize);
 NET_DVR_API BOOL __stdcall NET_DVR_ResetCounter(LONG lUserID, LONG lChannel);
 
-NET_DVR_API BOOL __stdcall
-NET_DVR_GetPtzPosition(LONG lUserID, LONG lChannel, LONG lPositionID, LPNET_DVR_PTZ_POSITION lpPtzPosition);
-NET_DVR_API BOOL __stdcall
-NET_DVR_SetPtzPosition(LONG lUserID, LONG lChannel, LONG lPositionID, LPNET_DVR_PTZ_POSITION lpPtzPosition);
-NET_DVR_API BOOL __stdcall
-NET_DVR_SetPatrolTrack(LONG lUserID, LONG lChannel, LONG lPatrolIndex, LPNET_DVR_PATROL_TRACKCFG lpPatrolTrack);
-NET_DVR_API BOOL __stdcall
-NET_DVR_GetPatrolTrack(LONG lUserID, LONG lChannel, LONG lPatrolIndex, LPNET_DVR_PATROL_TRACKCFG lpPatrolTrack);
+NET_DVR_API BOOL __stdcall NET_DVR_GetPtzPosition(LONG lUserID, LONG lChannel, LONG lPositionID, LPNET_DVR_PTZ_POSITION lpPtzPosition);
+NET_DVR_API BOOL __stdcall NET_DVR_SetPtzPosition(LONG lUserID, LONG lChannel, LONG lPositionID, LPNET_DVR_PTZ_POSITION lpPtzPosition);
+NET_DVR_API BOOL __stdcall NET_DVR_SetPatrolTrack(LONG lUserID, LONG lChannel, LONG lPatrolIndex, LPNET_DVR_PATROL_TRACKCFG lpPatrolTrack);
+NET_DVR_API BOOL __stdcall NET_DVR_GetPatrolTrack(LONG lUserID, LONG lChannel, LONG lPatrolIndex, LPNET_DVR_PATROL_TRACKCFG lpPatrolTrack);
 NET_DVR_API LONG __stdcall NET_DVR_FindNextLog_MATRIX(LONG lLogHandle, LPNET_DVR_LOG_MATRIX lpLogData);
 NET_DVR_API LONG __stdcall NET_DVR_FindDVRLog_Matrix(LONG lUserID, LONG lSelectMode, DWORD dwMajorType, DWORD dwMinorType, LPNET_DVR_VEDIOPLATLOG lpVedioPlatLog, LPNET_DVR_TIME lpStartTime, LPNET_DVR_TIME lpStopTime);
 
-NET_DVR_API BOOL __stdcall
-NET_DVR_ManualSnap(LONG lUserID, NET_DVR_MANUALSNAP const *lpInter, LPNET_DVR_PLATE_RESULT lpOuter);
+NET_DVR_API BOOL __stdcall NET_DVR_ManualSnap(LONG lUserID, NET_DVR_MANUALSNAP const *lpInter, LPNET_DVR_PLATE_RESULT lpOuter);
 NET_DVR_API BOOL __stdcall NET_DVR_ContinuousShoot(LONG lUserID, LPNET_DVR_SNAPCFG lpInter);
 
 NET_DVR_API BOOL __stdcall NET_DVR_GetPTZProtocol_Ex(LONG lUserID, LONG lChannel, NET_DVR_PTZCFG *pPtzcfg);
@@ -48984,8 +48964,7 @@ NET_DVR_API LONG __stdcall NET_DVR_RealPlay_Card_V30(LONG lUserID, NET_DVR_CARDI
 
 
 NET_DVR_API BOOL __stdcall NET_DVR_GetDiskList(LONG lUserID, LPNET_DVR_DISKABILITY_LIST lpDiskList);
-NET_DVR_API LONG __stdcall
-NET_DVR_Backup(LONG lUserID, DWORD dwBackupType, LPVOID lpBackupBuff, DWORD dwBackupBuffSize);
+NET_DVR_API LONG __stdcall NET_DVR_Backup(LONG lUserID, DWORD dwBackupType, LPVOID lpBackupBuff, DWORD dwBackupBuffSize);
 NET_DVR_API LONG __stdcall NET_DVR_BackupByName(LONG lUserID, LPNET_DVR_BACKUP_NAME_PARAM lpBackupByName);
 NET_DVR_API LONG __stdcall NET_DVR_BackupByTime(LONG lUserID, LPNET_DVR_BACKUP_TIME_PARAM lpBackupBytime);
 NET_DVR_API BOOL __stdcall NET_DVR_GetBackupProgress(LONG lHandle, DWORD *pState);
@@ -49023,12 +49002,10 @@ NET_DVR_API BOOL __stdcall NET_DVR_InquestFindClose(LONG lFindHandle);
 NET_DVR_API LONG __stdcall NET_DVR_RaidFastConfig(LONG lUserID, char *sName);
 NET_DVR_API BOOL __stdcall NET_DVR_FastConfigProcess(LONG lHandle, DWORD *pState);
 NET_DVR_API BOOL __stdcall NET_DVR_CloseFastConfig(LONG lHandle);
-NET_DVR_API BOOL __stdcall
-NET_DVR_GetArraySpaceAlloc(LONG lUserID, DWORD dwSlot, LPNET_DVR_ARRAY_SPACE_ALLOC_INFO lpOutBuf);
+NET_DVR_API BOOL __stdcall NET_DVR_GetArraySpaceAlloc(LONG lUserID, DWORD dwSlot, LPNET_DVR_ARRAY_SPACE_ALLOC_INFO lpOutBuf);
 NET_DVR_API BOOL __stdcall NET_DVR_DelArray(LONG lUserID, DWORD dwID);
 NET_DVR_API BOOL __stdcall NET_DVR_CreateArray(LONG lUserID, LPNET_DVR_OPERATE_ARRAY_PARAM lpArrayParam);
-NET_DVR_API BOOL __stdcall
-NET_DVR_CalcArraySize(LONG lUserID, LPNET_DVR_OPERATE_ARRAY_PARAM lpArrayParam, UINT64 *lpArraySize);
+NET_DVR_API BOOL __stdcall NET_DVR_CalcArraySize(LONG lUserID, LPNET_DVR_OPERATE_ARRAY_PARAM lpArrayParam, UINT64 *lpArraySize);
 NET_DVR_API BOOL __stdcall NET_DVR_MigrateArray(LONG lUserID, LPNET_DVR_OPERATE_ARRAY_PARAM lpArrayParam);
 NET_DVR_API BOOL __stdcall NET_DVR_RebuildArray(LONG lUserID, LPNET_DVR_OPERATE_ARRAY_PARAM lpArrayParam);
 NET_DVR_API BOOL __stdcall NET_DVR_CreateVD(LONG lUserID, LPNET_DVR_OPERATE_VD_PARAM lpVDParam);
@@ -49562,46 +49539,31 @@ NET_DVR_OpticalUpgrade(LONG lUserID, char const *sFileName, LPNET_DVR_OPTICAL_IN
 
 typedef void(CALLBACK *fGPSDataCallback)(LONG nHandle, DWORD dwState, void *lpBuffer, DWORD dwBufLen, void *pUserData);
 
-NET_DVR_API LONG __stdcall
-NET_DVR_GetVehicleGpsInfo(LONG nUserID, LPNET_DVR_GET_GPS_DATA_PARAM lpGPSDataParam, fGPSDataCallback cbGPSDataCallback,
-                          void *pUser);
+NET_DVR_API LONG __stdcall NET_DVR_GetVehicleGpsInfo(LONG nUserID, LPNET_DVR_GET_GPS_DATA_PARAM lpGPSDataParam, fGPSDataCallback cbGPSDataCallback, void *pUser);
 
 NET_DVR_API BOOL __stdcall NET_DVR_ClosePreview(LONG lUserID, DWORD nSessionID);
 NET_DVR_API BOOL __stdcall NET_DVR_ClosePlayBack(LONG lUserID, DWORD nSessionID);
-NET_DVR_API LONG __stdcall
-NET_DVR_RealPlay_V40(LONG lUserID, LPNET_DVR_PREVIEWINFO lpPreviewInfo, REALDATACALLBACK fRealDataCallBack_V30 = NULL,
-                     void *pUser = NULL);
-NET_DVR_API LONG __stdcall NET_DVR_RealPlaySpecial(LONG lUserID, LPNET_DVR_PREVIEWINFO_SPECIAL lpPreviewInfo,
-                                                   REALDATACALLBACK fRealDataCallBack_V30 = NULL, void *pUser = NULL);
-NET_DVR_API BOOL __stdcall
-NET_DVR_GetLinkAddr(LONG lLinkHandle, NET_DVR_LINK_KIND enumLinkKind, LPNET_DVR_LINK_ADDR lpLinkAddr);
+NET_DVR_API LONG __stdcall NET_DVR_RealPlay_V40(LONG lUserID, LPNET_DVR_PREVIEWINFO lpPreviewInfo, REALDATACALLBACK fRealDataCallBack_V30 = NULL, void *pUser = NULL);
+NET_DVR_API LONG __stdcall NET_DVR_RealPlaySpecial(LONG lUserID, LPNET_DVR_PREVIEWINFO_SPECIAL lpPreviewInfo, REALDATACALLBACK fRealDataCallBack_V30 = NULL, void *pUser = NULL);
+NET_DVR_API BOOL __stdcall NET_DVR_GetLinkAddr(LONG lLinkHandle, NET_DVR_LINK_KIND enumLinkKind, LPNET_DVR_LINK_ADDR lpLinkAddr);
 
-NET_DVR_API LONG __stdcall
-NET_DVR_StartDownload(LONG lUserID, DWORD dwDownloadType, LPVOID lpInBuffer, DWORD dwInBufferSize,
-                      const char *sFileName);
+NET_DVR_API LONG __stdcall NET_DVR_StartDownload(LONG lUserID, DWORD dwDownloadType, LPVOID lpInBuffer, DWORD dwInBufferSize, const char *sFileName);
 NET_DVR_API LONG __stdcall NET_DVR_GetDownloadState(LONG lDownloadHandle, LPDWORD pProgress);
 NET_DVR_API int  __stdcall NET_DVR_GetDownloadStateInfo(LONG lDownloadHandle, void *pStatusInfo);
 NET_DVR_API BOOL __stdcall NET_DVR_StopDownload(LONG lHandle);
 
-NET_DVR_API BOOL __stdcall
-NET_DVR_MatrixStartDynamic_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_PU_STREAM_CFG_V41 lpDynamicInfo);
-NET_DVR_API BOOL __stdcall
-NET_DVR_MatrixGetLoopDecChanInfo_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_MATRIX_LOOP_DECINFO_V41 lpOuter);
-NET_DVR_API BOOL __stdcall
-NET_DVR_MatrixSetLoopDecChanInfo_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_MATRIX_LOOP_DECINFO_V41 lpInter);
-NET_DVR_API BOOL __stdcall
-NET_DVR_MatrixGetDecChanInfo_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_MATRIX_DEC_CHAN_INFO_V41 lpOuter);
+NET_DVR_API BOOL __stdcall NET_DVR_MatrixStartDynamic_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_PU_STREAM_CFG_V41 lpDynamicInfo);
+NET_DVR_API BOOL __stdcall NET_DVR_MatrixGetLoopDecChanInfo_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_MATRIX_LOOP_DECINFO_V41 lpOuter);
+NET_DVR_API BOOL __stdcall NET_DVR_MatrixSetLoopDecChanInfo_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_MATRIX_LOOP_DECINFO_V41 lpInter);
+NET_DVR_API BOOL __stdcall NET_DVR_MatrixGetDecChanInfo_V41(LONG lUserID, DWORD dwDecChanNum, LPNET_DVR_MATRIX_DEC_CHAN_INFO_V41 lpOuter);
 
 NET_DVR_API LONG __stdcall NET_DVR_StartT1Test(LONG lUserID, LPNET_DVR_ALARMHOST_DOWNLOAD_PARAM lpStruDownloadParam);
 NET_DVR_API BOOL __stdcall NET_DVR_StopTT1Test(BOOL lHandle);
 NET_DVR_API BOOL __stdcall NET_DVR_GetT1TestStatus(LONG lHandle, LONG *pStatus);
 NET_DVR_API BOOL __stdcall NET_DVR_SendT1TestData(LONG lHandle, DWORD dwDataType, char *pSendBuf, DWORD dwSendBufLen);
 
-NET_DVR_API BOOL __stdcall
-NET_DVR_UploadLogo_NEW(LONG lUserID, DWORD dwLogoNo, LPNET_DVR_MATRIX_LOGO_INFO lpLogoInfo, char *sLogoBuffer);
-NET_DVR_API BOOL __stdcall
-NET_DVR_DownloadLogo(LONG lUserID, DWORD dwLogoNo, LPNET_DVR_MATRIX_LOGO_INFO lpLogoInfo, char *sLogoBuffer,
-                     DWORD dwLogoBufferSize);
+NET_DVR_API BOOL __stdcall NET_DVR_UploadLogo_NEW(LONG lUserID, DWORD dwLogoNo, LPNET_DVR_MATRIX_LOGO_INFO lpLogoInfo, char *sLogoBuffer);
+NET_DVR_API BOOL __stdcall NET_DVR_DownloadLogo(LONG lUserID, DWORD dwLogoNo, LPNET_DVR_MATRIX_LOGO_INFO lpLogoInfo, char *sLogoBuffer, DWORD dwLogoBufferSize);
 NET_DVR_API LONG __stdcall NET_DVR_StartPassiveTransCode(LONG lUserID, NET_DVR_STREAM_INFO const *pStreamInfo,
                                                          NET_DVR_COMPRESSIONCFG_V30 const *pDstTransInfo,
                                                          NET_DVR_PASSIVETRANSINFO const *pPassiveTransInfo,
