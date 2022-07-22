@@ -5,6 +5,7 @@
 #include <iostream>
 #include "unistd.h"
 #include <cstring>
+#include "glog/logging.h"
 #include "HCNetSDK.h"
 
 //typedef HWND(WINAPI *PROCGETCONSOLEWINDOW)();
@@ -12,13 +13,13 @@
 
 typedef void (CALLBACK *PlayDataCallBackFunc)(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser);
 
-
+// 1 hour -> 2min
 void CALLBACK *fPlayDataCallBack_V40(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser) {
     switch (dwDataType) {
         case NET_DVR_SYSHEAD:  //系统头
             break;
         case NET_DVR_STREAMDATA:   //码流数据
-            std::cout << "len: " << dwBufSize << std::endl;
+            LOG(INFO) << "len: " << dwBufSize;
             break;
         case NET_DVR_CHANGE_FORWARD:
             break;
@@ -31,8 +32,10 @@ void CALLBACK *fPlayDataCallBack_V40(LONG lPlayHandle, DWORD dwDataType, BYTE *p
 }
 
 
-int main() {
-
+int main(int argc, char** argv) {
+    FLAGS_logtostderr = true;
+    FLAGS_logbufsecs = 0;
+    google::InitGoogleLogging(argv[0]);
     //---------------------------------------
     // 初始化
     NET_DVR_Init();
@@ -115,7 +118,7 @@ int main() {
         return -1;
     }
 
-    sleep(150);  //millisecond
+    sleep(1500);  //millisecond
 
     //停止回放
     if (!NET_DVR_StopPlayBack(hPlayback)) {
